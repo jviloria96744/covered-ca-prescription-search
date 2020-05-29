@@ -16,7 +16,7 @@ import { COVERAGE_OBJECT } from "./constants";
 
 const useStyles = makeStyles(() => ({
   paper: {
-    maxHeight: "50%",
+    maxWidth: "75%",
   },
 }));
 
@@ -80,7 +80,7 @@ const InsurerCardTable = ({ prescriptionData }) => {
         </TableBody>
       </Table>
       <SwipeableDrawer
-        anchor="bottom"
+        anchor="left"
         open={isOpen}
         onClose={() => toggleDrawer(drawerType, false)}
         onOpen={() => toggleDrawer(drawerType, true)}
