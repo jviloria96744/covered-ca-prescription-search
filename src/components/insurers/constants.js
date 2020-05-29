@@ -101,6 +101,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://fm.formularynavigator.com/FBO/143/2020_Select_4_Tier_CA_IND.pdf",
     key: "Anthem-Blue-Cross",
+    website_url: "https://www.anthem.com/ca/",
     supported: true,
   },
   {
@@ -108,6 +109,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "http://assets.ctfassets.net/ykg55i5qpwt5/g99gc0V7G509opitecc4U/6d6ce67659e115b1f98f247518b7eb01/2019_CCHP_November_ON_Exchange_Formulary_NOV.pdf",
     key: "cchp",
+    website_url: "https://www.cchphealthplan.com/",
     supported: true,
   },
   {
@@ -115,6 +117,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://www.healthnet.com/static/general/unprotected/pdfs/national/ca_essential_rx_list.pdf",
     key: "healthnet",
+    website_url: "https://www.healthnet.com/",
     supported: true,
   },
   {
@@ -122,6 +125,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://www.blueshieldca.com/bsca/pharmacy/formulary/home.sp",
     key: "blue shield",
+    website_url: "https://www.blueshieldca.com/",
     supported: false,
   },
   {
@@ -129,6 +133,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://healthy.kaiserpermanente.org/health/care/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfIjk1PzSlKLrJLzy1KLUlN0c1NTMpPB0sW6aflFuaU5iUWV-gXZjooA5UnAOg!!/",
     key: "kaiser",
+    website_url: "https://healthy.kaiserpermanente.org/",
     supported: false,
   },
   {
@@ -136,6 +141,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "http://www.lacare.org/members/welcome-la-care/member-documents/la-care-covered",
     key: "la care",
+    website_url: "https://www.lacare.org/",
     supported: false,
   },
   {
@@ -143,6 +149,8 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://www.molinahealthcare.com/members/ca/en-US/hp/marketplace/plans/Pages/View-Our-2020-Plans.aspx",
     key: "molina",
+    website_url:
+      "https://www.molinahealthcare.com/members/ca/en-us/Pages/home.aspx",
     supported: false,
   },
   {
@@ -150,6 +158,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://assets.ctfassets.net/plyq12u1bv8a/72DDNlKiFJmMEn3yGDBGnh/1012d5fb1e4d2024c7d58b5abab922c1/Oscar_4T_CA_STND_Member_Doc__May_2020__as_of_031820.pdf",
     key: "oscar",
+    website_url: "https://www.hioscar.com/",
     supported: false,
   },
   {
@@ -157,6 +166,7 @@ export const INSURER_ARRAY = [
     formulary_url:
       "https://www.valleyhealthplan.org/sites/m/pn/pharm/pages/pharmacy.aspx",
     key: "valley",
+    website_url: "https://www.valleyhealthplan.org/Pages/default.aspx",
     supported: false,
   },
 ];

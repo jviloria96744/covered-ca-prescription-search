@@ -11,7 +11,13 @@ import {
 import InsurerCardTable from "./InsurerCardTable";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
-const InsurerCard = ({ insurerName, formularyUrl, dataKey, supported }) => {
+const InsurerCard = ({
+  insurerName,
+  formularyUrl,
+  dataKey,
+  supported,
+  websiteUrl,
+}) => {
   const prescriptionContext = useContext(PrescriptionContext);
   const { prescriptionSearchResults } = prescriptionContext;
 
@@ -33,7 +39,17 @@ const InsurerCard = ({ insurerName, formularyUrl, dataKey, supported }) => {
         raised
         style={{ marginTop: "10px", marginBottom: "20px" }}
       >
-        <CardHeader title={insurerName} />
+        <CardHeader
+          title={
+            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+              <img
+                src={`/images/${dataKey}.png`}
+                alt=""
+                style={{ maxWidth: "160px", maxHeight: "70px" }}
+              />
+            </a>
+          }
+        />
         {supported ? (
           <InsurerCardTable
             prescriptionData={prescriptionSearchResults[dataKey]}
@@ -54,6 +70,7 @@ const InsurerCard = ({ insurerName, formularyUrl, dataKey, supported }) => {
 InsurerCard.propTypes = {
   insurerName: PropTypes.string.isRequired,
   formularyUrl: PropTypes.string.isRequired,
+  websiteUrl: PropTypes.string.isRequired,
   dataKey: PropTypes.string.isRequired,
   supported: PropTypes.bool.isRequired,
 };

@@ -18,6 +18,7 @@ const InsurerCards = () => {
           <InsurerCard
             insurerName={insurer.label}
             formularyUrl={insurer.formulary_url}
+            websiteUrl={insurer.website_url}
             key={insurer.key}
             supported={insurer.supported}
             dataKey={insurer.key}
