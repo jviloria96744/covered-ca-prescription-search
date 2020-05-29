@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 import propTypes from "prop-types";
 import {
   CardContent,
@@ -8,9 +8,28 @@ import {
   TableHead,
   TableRow,
   Typography,
+  SwipeableDrawer,
+  Button,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { COVERAGE_OBJECT } from "./constants";
+
+const useStyles = makeStyles(() => ({
+  paper: {
+    maxHeight: "50%",
+  },
+}));
 
 const InsurerCardTable = ({ prescriptionData }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [drawerType, setDrawerType] = useState("Tier");
+  const classes = useStyles();
+
+  const toggleDrawer = (type, state) => {
+    setIsOpen(state);
+    setDrawerType(type);
+  };
+
   if (!prescriptionData) {
     return (
       <CardContent>
@@ -26,8 +45,22 @@ const InsurerCardTable = ({ prescriptionData }) => {
         <TableHead>
           <TableRow>
             <TableCell>Prescription Drug Name</TableCell>
-            <TableCell>Drug Tier</TableCell>
-            <TableCell>Coverage Requirements and Limits</TableCell>
+            <TableCell>
+              <Button
+                color="primary"
+                onClick={() => toggleDrawer("Tier", true)}
+              >
+                Drug Tier
+              </Button>
+            </TableCell>
+            <TableCell>
+              <Button
+                color="primary"
+                onClick={() => toggleDrawer("coverageRequirements", true)}
+              >
+                Coverage Requirements and Limits
+              </Button>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,8 +70,8 @@ const InsurerCardTable = ({ prescriptionData }) => {
                 <TableCell component="th" scope="row">
                   {scrip["Prescription Drug Name"]}
                 </TableCell>
-                <TableCell>{scrip["Drug Tier"]}</TableCell>
-                <TableCell>
+                <TableCell align="center">{scrip["Drug Tier"]}</TableCell>
+                <TableCell align="center">
                   {scrip["Coverage Requirements and Limits"]}
                 </TableCell>
               </TableRow>
@@ -46,6 +79,30 @@ const InsurerCardTable = ({ prescriptionData }) => {
           })}
         </TableBody>
       </Table>
+      <SwipeableDrawer
+        anchor="bottom"
+        open={isOpen}
+        onClose={() => toggleDrawer(drawerType, false)}
+        onOpen={() => toggleDrawer(drawerType, true)}
+        classes={{
+          paper: classes.paper,
+        }}
+      >
+        <Fragment>
+          <Typography variant="h3">
+            {COVERAGE_OBJECT[drawerType].label}
+          </Typography>
+          {COVERAGE_OBJECT[drawerType].items.map((item) => {
+            return (
+              <Typography variant="body1" component="p" key={item.label}>
+                <strong>{item.label}</strong>
+                <br />
+                {item.content}
+              </Typography>
+            );
+          })}
+        </Fragment>
+      </SwipeableDrawer>
     </CardContent>
   );
 };

@@ -54,8 +54,8 @@ const InsurerCard = ({ insurerName, formularyUrl, dataKey, supported }) => {
 InsurerCard.propTypes = {
   insurerName: PropTypes.string.isRequired,
   formularyUrl: PropTypes.string.isRequired,
-  prescriptions: PropTypes.array.isRequired,
   dataKey: PropTypes.string.isRequired,
+  supported: PropTypes.bool.isRequired,
 };
 
 export default InsurerCard;
