@@ -10,17 +10,17 @@ export default (state, action) => {
       return {
         ...state,
         rxOptions: action.payload,
-        loadingOptions: false,
       };
     case SEARCH_PRESCRIPTIONS:
       return {
         ...state,
         prescriptionSearchResults: action.payload,
+        loadingSearchResults: false,
       };
     case SET_LOADING:
       return {
         ...state,
-        loadingOptions: true,
+        loadingSearchResults: true,
       };
     default:
       return state;

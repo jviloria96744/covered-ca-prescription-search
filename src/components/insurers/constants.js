@@ -85,20 +85,68 @@ handling.`,
   },
 ];
 
-export const INSURER_OBJECT = {
-  "Anthem-Blue-Cross": {
+export const INSURER_ARRAY = [
+  {
     label: "Anthem Blue Cross of California",
     formulary_url:
       "https://fm.formularynavigator.com/FBO/143/2020_Select_4_Tier_CA_IND.pdf",
+    key: "Anthem-Blue-Cross",
+    supported: true,
   },
-  cchp: {
+  {
     label: "Chinese Community Health Plan",
     formulary_url:
       "http://assets.ctfassets.net/ykg55i5qpwt5/g99gc0V7G509opitecc4U/6d6ce67659e115b1f98f247518b7eb01/2019_CCHP_November_ON_Exchange_Formulary_NOV.pdf",
+    key: "cchp",
+    supported: true,
   },
-  healthnet: {
+  {
     label: "Health Net",
     formulary_url:
       "https://www.healthnet.com/static/general/unprotected/pdfs/national/ca_essential_rx_list.pdf",
+    key: "healthnet",
+    supported: true,
   },
-};
+  {
+    label: "Blue Shield of California",
+    formulary_url:
+      "https://www.blueshieldca.com/bsca/pharmacy/formulary/home.sp",
+    key: "blue shield",
+    supported: false,
+  },
+  {
+    label: "Kaiser Permanente",
+    formulary_url:
+      "https://healthy.kaiserpermanente.org/health/care/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfIjk1PzSlKLrJLzy1KLUlN0c1NTMpPB0sW6aflFuaU5iUWV-gXZjooA5UnAOg!!/",
+    key: "kaiser",
+    supported: false,
+  },
+  {
+    label: "LA Care Health Plan",
+    formulary_url:
+      "http://www.lacare.org/members/welcome-la-care/member-documents/la-care-covered",
+    key: "la care",
+    supported: false,
+  },
+  {
+    label: "Molina Healthcare",
+    formulary_url:
+      "https://www.molinahealthcare.com/members/ca/en-US/hp/marketplace/plans/Pages/View-Our-2020-Plans.aspx",
+    key: "molina",
+    supported: false,
+  },
+  {
+    label: "Oscar Health Plan of California",
+    formulary_url:
+      "https://assets.ctfassets.net/plyq12u1bv8a/72DDNlKiFJmMEn3yGDBGnh/1012d5fb1e4d2024c7d58b5abab922c1/Oscar_4T_CA_STND_Member_Doc__May_2020__as_of_031820.pdf",
+    key: "oscar",
+    supported: false,
+  },
+  {
+    label: "Valley Health Plan",
+    formulary_url:
+      "https://www.valleyhealthplan.org/sites/m/pn/pharm/pages/pharmacy.aspx",
+    key: "valley",
+    supported: false,
+  },
+];

@@ -12,13 +12,12 @@ const PrescriptionState = (props) => {
   const initialState = {
     prescriptionSearchResults: null,
     rxOptions: [],
-    loadingOptions: false,
+    loadingSearchResults: false,
   };
 
   const [state, dispatch] = useReducer(PrescriptionReducer, initialState);
 
   const getPrescriptionOptions = async () => {
-    setLoading();
     const res = await prescriptionApi.get("/get_prescription_options");
     dispatch({
       type: GET_PRESCRIPTION_OPTIONS,
@@ -28,14 +27,13 @@ const PrescriptionState = (props) => {
 
   // Search Prescriptions, results should come from back-end API
   const searchPrescriptions = async (prescriptions) => {
+    setLoading();
     const terms = prescriptions.map((prescription) => prescription.Value);
 
     const res = await prescriptionApi.post(
       "/search_prescriptions",
       JSON.stringify({ terms })
     );
-
-    console.log(res.data.Data);
 
     dispatch({
       type: SEARCH_PRESCRIPTIONS,
@@ -52,7 +50,7 @@ const PrescriptionState = (props) => {
       value={{
         prescriptionSearchResults: state.prescriptionSearchResults,
         searchPrescriptions: searchPrescriptions,
-        loadingOptions: state.loadingOptions,
+        loadingSearchResults: state.loadingSearchResults,
         rxOptions: state.rxOptions,
         getPrescriptionOptions: getPrescriptionOptions,
       }}
