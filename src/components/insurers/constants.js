@@ -85,15 +85,20 @@ handling.`,
   },
 ];
 
-export const INSURER_ARRAY = [
-  {
+export const INSURER_OBJECT = {
+  "Anthem-Blue-Cross": {
     label: "Anthem Blue Cross of California",
     formulary_url:
       "https://fm.formularynavigator.com/FBO/143/2020_Select_4_Tier_CA_IND.pdf",
   },
-  {
-    label: "Blue Shield of California",
+  cchp: {
+    label: "Chinese Community Health Plan",
     formulary_url:
-      "https://www.blueshieldca.com/bsca/pharmacy/formulary/home.sp",
+      "http://assets.ctfassets.net/ykg55i5qpwt5/g99gc0V7G509opitecc4U/6d6ce67659e115b1f98f247518b7eb01/2019_CCHP_November_ON_Exchange_Formulary_NOV.pdf",
   },
-];
+  healthnet: {
+    label: "Health Net",
+    formulary_url:
+      "https://www.healthnet.com/static/general/unprotected/pdfs/national/ca_essential_rx_list.pdf",
+  },
+};

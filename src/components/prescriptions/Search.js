@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import propTypes from "prop-types";
 import {
   Grid,
   TextField,
@@ -9,25 +10,11 @@ import {
   CardContent,
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import axios from "axios";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
-const Search = () => {
+const Search = ({ rxOptions }) => {
   const [searchedRx, setSearchedRx] = useState([]);
-  const [rxOptions, setRxOptions] = useState([]);
   const prescriptionContext = useContext(PrescriptionContext);
-
-  const getOptions = async () => {
-    const endpoint =
-      "https://kbsw03zzoh.execute-api.us-west-2.amazonaws.com/default/get_prescription_options";
-    const res = await axios.get(endpoint);
-    setRxOptions(res.data["Prescription Options"]);
-  };
-
-  useEffect(() => {
-    getOptions();
-    // eslint-disable-next-line
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,6 +67,10 @@ const Search = () => {
       </Card>
     </Grid>
   );
+};
+
+Search.propTypes = {
+  rxOptions: propTypes.array.isRequired,
 };
 
 export default Search;

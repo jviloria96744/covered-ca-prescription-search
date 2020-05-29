@@ -19,7 +19,7 @@ const InsurerCard = ({ insurerName, formularyUrl, prescriptions }) => {
           {prescriptions.map((scrip) => {
             return (
               <Typography variant="body2" component="p" key={scrip.Value}>
-                {scrip.Label}
+                {scrip["Prescription Drug Name"]}
               </Typography>
             );
           })}
