@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Navbar from "./components/layout/Navbar";
 import Search from "./components/prescriptions/Search";
@@ -7,9 +7,34 @@ import InsurerCard from "./components/insurers/InsurerCard";
 import { INSURER_ARRAY } from "./components/insurers/constants";
 import PrescriptionContext from "./context/prescription/prescriptionContext";
 
+import axios from "axios";
+
 const App = () => {
   const prescriptionContext = useContext(PrescriptionContext);
   const { prescriptionSearchResults } = prescriptionContext;
+
+  const searchOptions = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    };
+    const endpoint =
+      "https://kbsw03zzoh.execute-api.us-west-2.amazonaws.com/default/search_prescriptions";
+    const res = await axios.post(
+      endpoint,
+      JSON.stringify({
+        terms: ["montelukast", "atorvastatin"],
+      }),
+      config
+    );
+    console.log(res);
+  };
+
+  useEffect(() => {
+    searchOptions();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="App">
