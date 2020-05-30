@@ -5,8 +5,8 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6">
-          Covered California Formulary Search
+        <Typography variant="h4">
+          Covered California Prescription Search
         </Typography>
       </Toolbar>
     </AppBar>
