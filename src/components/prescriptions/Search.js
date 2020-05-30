@@ -7,23 +7,30 @@ import {
   Card,
   CardHeader,
   CardContent,
+  Collapse,
+  IconButton,
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import Alert from "@material-ui/lab/Alert";
+import CloseIcon from "@material-ui/icons/Close";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 import Spinner from "../layout/Spinner";
 
 const Search = () => {
   const [searchedRx, setSearchedRx] = useState([]);
+  const [alertOpen, setAlertOpen] = useState(false);
   const prescriptionContext = useContext(PrescriptionContext);
 
   const { searchPrescriptions, rxOptions } = prescriptionContext;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchPrescriptions(searchedRx);
-
-    //console.log(searchedRx);
-    setSearchedRx([]);
+    if (searchedRx.length === 0) {
+      setAlertOpen(true);
+    } else {
+      searchPrescriptions(searchedRx);
+      setSearchedRx([]);
+    }
   };
 
   if (rxOptions.length === 0) {
@@ -55,6 +62,9 @@ const Search = () => {
                 value={searchedRx}
                 onChange={(event, newValue) => {
                   setSearchedRx(newValue);
+                  if (newValue.length > 0) {
+                    setAlertOpen(false);
+                  }
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -74,6 +84,25 @@ const Search = () => {
                 Search Formularies
               </Button>
             </form>
+            <Collapse in={alertOpen}>
+              <Alert
+                severity="error"
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setAlertOpen(false);
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+              >
+                Please enter prescription options in the search field
+              </Alert>
+            </Collapse>
           </CardContent>
         </Card>
       </Grid>

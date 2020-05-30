@@ -12,7 +12,7 @@ const PrescriptionState = (props) => {
   const initialState = {
     prescriptionSearchResults: null,
     rxOptions: [],
-    loadingSearchResults: false,
+    loadingSearchResults: null,
   };
 
   const [state, dispatch] = useReducer(PrescriptionReducer, initialState);

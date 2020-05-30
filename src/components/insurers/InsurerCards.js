@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
 import InsurerCard from "./InsurerCard";
 import { INSURER_ARRAY } from "./constants";
+import Spinner from "../layout/Spinner";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
 const InsurerCards = () => {
   const prescriptionContext = useContext(PrescriptionContext);
-  const { prescriptionSearchResults } = prescriptionContext;
+  const { loadingSearchResults } = prescriptionContext;
 
-  if (prescriptionSearchResults === null) {
+  if (loadingSearchResults === null) {
     return null;
+  } else if (loadingSearchResults) {
+    return <Spinner />;
   }
   return (
     <Grid container justify="center">
