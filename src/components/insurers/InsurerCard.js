@@ -33,7 +33,7 @@ const InsurerCard = ({
   };
 
   return (
-    <Grid item xs={8}>
+    <Grid item xs={12} md={8}>
       <Card
         variant="outlined"
         raised

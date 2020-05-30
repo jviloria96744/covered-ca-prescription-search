@@ -42,12 +42,12 @@ const Search = () => {
   }
 
   return (
-    <Grid container spacing={2} justify="center">
-      <Grid item xs={6}>
+    <Grid container justify="center">
+      <Grid item xs={12} md={6}>
         <Card variant="outlined" raised style={{ marginTop: "10px" }}>
           <CardHeader title="Prescription Search" />
           <CardContent>
-            <Typography variant="body2" component="p">
+            <Typography variant="body1" component="p">
               This tool searches your prescriptions across many Covered CA
               Marketplace providers to determine what Formulary Tier they fall
               under as well as any coverage restrictions that may exist

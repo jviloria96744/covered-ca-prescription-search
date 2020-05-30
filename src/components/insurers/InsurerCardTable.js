@@ -10,6 +10,7 @@ import {
   Typography,
   SwipeableDrawer,
   Button,
+  Divider,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { COVERAGE_OBJECT } from "./constants";
@@ -89,16 +90,25 @@ const InsurerCardTable = ({ prescriptionData }) => {
         }}
       >
         <Fragment>
-          <Typography variant="h3">
+          <Typography variant="h3" style={{ marginBottom: "3vh" }}>
             {COVERAGE_OBJECT[drawerType].label}
           </Typography>
+          <Divider />
           {COVERAGE_OBJECT[drawerType].items.map((item) => {
             return (
-              <Typography variant="body1" component="p" key={item.label}>
-                <strong>{item.label}</strong>
-                <br />
-                {item.content}
-              </Typography>
+              <Fragment>
+                <Typography
+                  variant="body1"
+                  component="p"
+                  key={item.label}
+                  style={{ marginTop: "3vh" }}
+                >
+                  <strong>{item.label}</strong>
+                  <br />
+                  {item.content}
+                </Typography>
+                <Divider variant="middle" />
+              </Fragment>
             );
           })}
         </Fragment>
