@@ -134,7 +134,7 @@ export const INSURER_ARRAY = [
       "https://healthy.kaiserpermanente.org/health/care/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfIjk1PzSlKLrJLzy1KLUlN0c1NTMpPB0sW6aflFuaU5iUWV-gXZjooA5UnAOg!!/",
     key: "kaiser",
     website_url: "https://healthy.kaiserpermanente.org/",
-    supported: false,
+    supported: true,
   },
   {
     label: "LA Care Health Plan",
