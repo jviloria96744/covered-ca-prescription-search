@@ -14,7 +14,8 @@ export default (state, action) => {
     case SEARCH_PRESCRIPTIONS:
       return {
         ...state,
-        prescriptionSearchResults: action.payload,
+        prescriptionSearchResults: action.payload.searchResults,
+        genericOptions: action.payload.genericResults,
         loadingSearchResults: false,
       };
     case SET_LOADING:

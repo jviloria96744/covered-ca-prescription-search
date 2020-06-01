@@ -52,7 +52,11 @@ const InsurerCard = ({
         />
         {supported ? (
           <InsurerCardTable
-            prescriptionData={prescriptionSearchResults[dataKey]}
+            prescriptionData={
+              !prescriptionSearchResults[dataKey]
+                ? []
+                : prescriptionSearchResults[dataKey]
+            }
           />
         ) : (
           notSupportedBlock()

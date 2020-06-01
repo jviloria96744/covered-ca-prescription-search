@@ -13,6 +13,7 @@ const PrescriptionState = (props) => {
     prescriptionSearchResults: null,
     rxOptions: [],
     loadingSearchResults: null,
+    genericOptions: null,
   };
 
   const [state, dispatch] = useReducer(PrescriptionReducer, initialState);
@@ -35,9 +36,22 @@ const PrescriptionState = (props) => {
       JSON.stringify({ terms })
     );
 
+    const brandNamePrescriptions = terms.filter(
+      (term) => term === term.toUpperCase()
+    );
+    let genericResults = null;
+    if (brandNamePrescriptions.length > 0) {
+      genericResults = brandNamePrescriptions.map((term) => {
+        return {
+          prescription: term,
+          genericOptions: res.data.generics[term],
+        };
+      });
+    }
+
     dispatch({
       type: SEARCH_PRESCRIPTIONS,
-      payload: res.data.Data,
+      payload: { searchResults: res.data.Data, genericResults: genericResults },
     });
   };
 
@@ -51,6 +65,7 @@ const PrescriptionState = (props) => {
         prescriptionSearchResults: state.prescriptionSearchResults,
         searchPrescriptions: searchPrescriptions,
         loadingSearchResults: state.loadingSearchResults,
+        genericOptions: state.genericOptions,
         rxOptions: state.rxOptions,
         getPrescriptionOptions: getPrescriptionOptions,
       }}

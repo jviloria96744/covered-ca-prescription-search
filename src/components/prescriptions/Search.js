@@ -14,6 +14,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import Alert from "@material-ui/lab/Alert";
 import CloseIcon from "@material-ui/icons/Close";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
+import GenericOptions from "./GenericOptions";
 import Spinner from "../layout/Spinner";
 
 const Search = () => {
@@ -71,7 +72,7 @@ const Search = () => {
                     {...params}
                     variant="standard"
                     label="Prescriptions"
-                    placeholder="Please select any prescriptions"
+                    placeholder="Please enter any prescriptions, e.g. Aspirin"
                   />
                 )}
               />
@@ -103,6 +104,7 @@ const Search = () => {
                 Please enter prescription options in the search field
               </Alert>
             </Collapse>
+            <GenericOptions />
           </CardContent>
         </Card>
       </Grid>

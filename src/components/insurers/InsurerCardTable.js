@@ -31,7 +31,7 @@ const InsurerCardTable = ({ prescriptionData }) => {
     setDrawerType(type);
   };
 
-  if (!prescriptionData) {
+  if (prescriptionData.length === 0) {
     return (
       <CardContent>
         <Typography variant="body1" component="p">
@@ -45,8 +45,10 @@ const InsurerCardTable = ({ prescriptionData }) => {
       <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Prescription Drug Name</TableCell>
-            <TableCell>
+            <TableCell style={{ width: "40%" }}>
+              <Typography variant="button">Prescription Drug Name</Typography>
+            </TableCell>
+            <TableCell style={{ width: "20%" }} align="center">
               <Button
                 color="primary"
                 onClick={() => toggleDrawer("Tier", true)}
@@ -54,7 +56,7 @@ const InsurerCardTable = ({ prescriptionData }) => {
                 Drug Tier
               </Button>
             </TableCell>
-            <TableCell>
+            <TableCell style={{ width: "40%" }} align="center">
               <Button
                 color="primary"
                 onClick={() => toggleDrawer("coverageRequirements", true)}
@@ -96,11 +98,11 @@ const InsurerCardTable = ({ prescriptionData }) => {
           <Divider />
           {COVERAGE_OBJECT[drawerType].items.map((item) => {
             return (
-              <Fragment>
+              <Fragment key={item.label}>
                 <Typography
                   variant="body1"
                   component="p"
-                  key={item.label}
+                  //key={item.label}
                   style={{ marginTop: "3vh" }}
                 >
                   <strong>{item.label}</strong>
