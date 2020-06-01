@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   Grid,
   Card,
@@ -48,6 +49,10 @@ const NotSupportedCard = ({ notSupportedInsurers }) => {
       </Card>
     </Grid>
   );
+};
+
+NotSupportedCard.propTypes = {
+  notSupportedInsurers: PropTypes.array.isRequired,
 };
 
 export default NotSupportedCard;
