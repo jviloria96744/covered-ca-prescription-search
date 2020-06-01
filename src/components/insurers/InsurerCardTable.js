@@ -45,7 +45,7 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
       <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell style={{ width: "40%" }}>
+            <TableCell style={{ width: "30%" }}>
               <Typography variant="button">Prescription Drug Name</Typography>
             </TableCell>
             <TableCell style={{ width: "20%" }} align="center">
@@ -56,7 +56,7 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
                 Drug Tier
               </Button>
             </TableCell>
-            <TableCell style={{ width: "40%" }} align="center">
+            <TableCell style={{ width: "50%" }} align="center">
               <Button
                 color="primary"
                 onClick={() => toggleDrawer("coverageRequirements", true)}

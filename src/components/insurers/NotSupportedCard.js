@@ -26,10 +26,10 @@ const NotSupportedCard = ({ notSupportedInsurers }) => {
           }
         />
         <CardContent>
-          <Grid container spacing={1}>
+          <Grid container spacing={1} justify="space-around">
             {notSupportedInsurers.map((insurer) => {
               return (
-                <Grid item xs={2} md={3}>
+                <Grid item xs={5} md={4}>
                   <a
                     href={insurer.formulary_url}
                     target="_blank"
