@@ -42,7 +42,7 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
   }
   return (
     <CardContent>
-      <Table size="small" aria-label="a dense table">
+      <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell style={{ width: "30%" }}>
