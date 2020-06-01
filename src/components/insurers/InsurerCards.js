@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
 import InsurerCard from "./InsurerCard";
+import NotSupportedCard from "./NotSupportedCard";
 import { INSURER_ARRAY } from "./constants";
 import Spinner from "../layout/Spinner";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
@@ -14,20 +15,27 @@ const InsurerCards = () => {
   } else if (loadingSearchResults) {
     return <Spinner />;
   }
+
+  const supportedInsurers = INSURER_ARRAY.filter(
+    (insurer) => insurer.supported
+  );
+  const notSupportedInsurers = INSURER_ARRAY.filter(
+    (insurer) => !insurer.supported
+  );
   return (
     <Grid container justify="center">
-      {INSURER_ARRAY.map((insurer) => {
+      {supportedInsurers.map((insurer) => {
         return (
           <InsurerCard
             insurerName={insurer.label}
             formularyUrl={insurer.formulary_url}
             websiteUrl={insurer.website_url}
             key={insurer.key}
-            supported={insurer.supported}
             dataKey={insurer.key}
           />
         );
       })}
+      <NotSupportedCard notSupportedInsurers={notSupportedInsurers} />
     </Grid>
   );
 };

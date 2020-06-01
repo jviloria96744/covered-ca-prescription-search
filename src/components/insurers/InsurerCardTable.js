@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import {
   CardContent,
   Table,
@@ -120,8 +120,8 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
 };
 
 InsurerCardTable.propTypes = {
-  prescriptionData: propTypes.array.isRequired,
-  dataKey: propTypes.string.isRequired,
+  prescriptionData: PropTypes.array.isRequired,
+  dataKey: PropTypes.string.isRequired,
 };
 
 export default InsurerCardTable;
