@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const InsurerCardTable = ({ prescriptionData }) => {
+const InsurerCardTable = ({ prescriptionData, dataKey }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [drawerType, setDrawerType] = useState("Tier");
   const classes = useStyles();
@@ -93,10 +93,10 @@ const InsurerCardTable = ({ prescriptionData }) => {
       >
         <Fragment>
           <Typography variant="h3" style={{ marginBottom: "3vh" }}>
-            {COVERAGE_OBJECT[drawerType].label}
+            {COVERAGE_OBJECT[dataKey][drawerType].label}
           </Typography>
           <Divider />
-          {COVERAGE_OBJECT[drawerType].items.map((item) => {
+          {COVERAGE_OBJECT[dataKey][drawerType].items.map((item) => {
             return (
               <Fragment key={item.label}>
                 <Typography
@@ -121,6 +121,7 @@ const InsurerCardTable = ({ prescriptionData }) => {
 
 InsurerCardTable.propTypes = {
   prescriptionData: propTypes.array.isRequired,
+  dataKey: propTypes.string.isRequired,
 };
 
 export default InsurerCardTable;

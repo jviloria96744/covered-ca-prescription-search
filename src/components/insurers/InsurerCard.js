@@ -52,6 +52,7 @@ const InsurerCard = ({
         />
         {supported ? (
           <InsurerCardTable
+            dataKey={dataKey}
             prescriptionData={
               !prescriptionSearchResults[dataKey]
                 ? []
