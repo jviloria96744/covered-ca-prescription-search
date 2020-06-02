@@ -1,35 +1,18 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  CardContent,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-  SwipeableDrawer,
-  Button,
-  Divider,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { COVERAGE_OBJECT } from "./constants";
+import { CardContent, Table, TableBody, Typography } from "@material-ui/core";
+import TableHeaderRow from "./TableHeaderRow";
+import TableDataRow from "./TableDataRow";
+import InsurerDrawer from "./InsurerDrawer";
 
 /**
  *
  * Component to render table in Insurer cards using results of the user prescription search
  */
 
-const useStyles = makeStyles(() => ({
-  paper: {
-    maxWidth: "75%",
-  },
-}));
-
 const InsurerCardTable = ({ prescriptionData, dataKey }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [drawerType, setDrawerType] = useState("Tier");
-  const classes = useStyles();
 
   const toggleDrawer = (type, state) => {
     setIsOpen(state);
@@ -48,78 +31,24 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
   return (
     <CardContent>
       <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell style={{ width: "30%" }}>
-              <Typography variant="button">Prescription Drug Name</Typography>
-            </TableCell>
-            <TableCell style={{ width: "20%" }} align="center">
-              <Button
-                color="primary"
-                onClick={() => toggleDrawer("Tier", true)}
-              >
-                Drug Tier
-              </Button>
-            </TableCell>
-            <TableCell style={{ width: "50%" }} align="center">
-              <Button
-                color="primary"
-                onClick={() => toggleDrawer("coverageRequirements", true)}
-              >
-                Coverage Requirements and Limits
-              </Button>
-            </TableCell>
-          </TableRow>
-        </TableHead>
+        <TableHeaderRow toggleDrawer={toggleDrawer} />
         <TableBody>
           {prescriptionData.map((scrip) => {
             return (
-              <TableRow key={scrip["Prescription Drug Name"]}>
-                <TableCell component="th" scope="row">
-                  {scrip["Prescription Drug Name"]}
-                </TableCell>
-                <TableCell align="center">{scrip["Drug Tier"]}</TableCell>
-                <TableCell align="center">
-                  {scrip["Coverage Requirements and Limits"]}
-                </TableCell>
-              </TableRow>
+              <TableDataRow
+                key={scrip["Prescription Drug Name"]}
+                scrip={scrip}
+              />
             );
           })}
         </TableBody>
       </Table>
-      <SwipeableDrawer
-        anchor="left"
-        open={isOpen}
-        onClose={() => toggleDrawer(drawerType, false)}
-        onOpen={() => toggleDrawer(drawerType, true)}
-        classes={{
-          paper: classes.paper,
-        }}
-      >
-        <Fragment>
-          <Typography variant="h3" style={{ marginBottom: "3vh" }}>
-            {COVERAGE_OBJECT[dataKey][drawerType].label}
-          </Typography>
-          <Divider />
-          {COVERAGE_OBJECT[dataKey][drawerType].items.map((item) => {
-            return (
-              <Fragment key={item.label}>
-                <Typography
-                  variant="body1"
-                  component="p"
-                  //key={item.label}
-                  style={{ marginTop: "3vh" }}
-                >
-                  <strong>{item.label}</strong>
-                  <br />
-                  {item.content}
-                </Typography>
-                <Divider variant="middle" />
-              </Fragment>
-            );
-          })}
-        </Fragment>
-      </SwipeableDrawer>
+      <InsurerDrawer
+        isOpen={isOpen}
+        toggleDrawer={toggleDrawer}
+        dataKey={dataKey}
+        drawerType={drawerType}
+      />
     </CardContent>
   );
 };

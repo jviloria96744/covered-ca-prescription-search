@@ -24,7 +24,7 @@ const SearchBodyContent = () => {
         <br />
         <br />
       </Typography>
-      <Typography variant="body2" element="p">
+      <Typography variant="caption" element="p">
         *Disclaimer: This site is not affiliated with Covered California in any
         way
         <br />
