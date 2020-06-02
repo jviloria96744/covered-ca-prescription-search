@@ -3,11 +3,16 @@ import { render } from "@testing-library/react";
 import App from "./App";
 import PrescriptionState from "./context/prescription/PrescriptionState";
 
-test("App renders properly", () => {
-  const { container } = render(
+const renderApp = () =>
+  render(
     <PrescriptionState>
       <App />
     </PrescriptionState>
   );
-  expect(container.firstChild.classList.contains("App")).toBe(true);
+
+test("App renders properly and navbar is visibile", () => {
+  const { getByText } = renderApp();
+  expect(
+    getByText("Covered California Prescription Search")
+  ).toBeInTheDocument();
 });

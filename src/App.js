@@ -1,19 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import Navbar from "./components/layout/Navbar";
 import Search from "./components/prescriptions/Search";
 import InsurerCards from "./components/insurers/InsurerCards";
-import PrescriptionContext from "./context/prescription/prescriptionContext";
 
 const App = () => {
-  const prescriptionContext = useContext(PrescriptionContext);
-  const { getPrescriptionOptions } = prescriptionContext;
-
-  useEffect(() => {
-    getPrescriptionOptions();
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <div className="App">
       <Navbar />
