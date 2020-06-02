@@ -6,6 +6,11 @@ import { INSURER_ARRAY } from "./constants";
 import Spinner from "../layout/Spinner";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
+/**
+ *
+ * Component for displaying all cards, both tool-supported insurers and the card that lists all non-supported insurers
+ */
+
 const InsurerCards = () => {
   const prescriptionContext = useContext(PrescriptionContext);
   const { loadingSearchResults } = prescriptionContext;

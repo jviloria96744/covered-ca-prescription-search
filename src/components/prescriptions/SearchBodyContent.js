@@ -1,6 +1,12 @@
 import React, { Fragment } from "react";
 import { Typography } from "@material-ui/core";
 
+/**
+ *
+ * Component that stores static content in the Search card
+ * This content includes a description of the tool, links to the CoveredCA website, as well as some disclaimers
+ */
+
 const SearchBodyContent = () => {
   return (
     <Fragment>
@@ -32,6 +38,9 @@ const SearchBodyContent = () => {
         </a>{" "}
         to scrape each provider's formulary to get their list of covered
         prescriptions.
+        <br />
+        ***Use of company logos are for informational purposes only. This tool
+        is not intended for commercial use
       </Typography>
     </Fragment>
   );

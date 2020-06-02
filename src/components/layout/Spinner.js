@@ -1,6 +1,9 @@
 import React, { Fragment } from "react";
 import spinner from "./spinner.gif";
 
+/**
+ * Basic Spinner component for API call wait times
+ */
 const Spinner = () => {
   return (
     <Fragment>

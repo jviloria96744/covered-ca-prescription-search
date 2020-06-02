@@ -17,6 +17,11 @@ import GenericOptions from "./GenericOptions";
 import SearchBodyContent from "./SearchBodyContent";
 import Spinner from "../layout/Spinner";
 
+/**
+ *
+ * Component that handles user search functionality of application
+ */
+
 const Search = () => {
   const [searchedRx, setSearchedRx] = useState([]);
   const [alertOpen, setAlertOpen] = useState(false);

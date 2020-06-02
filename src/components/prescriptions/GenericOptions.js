@@ -2,6 +2,11 @@ import React, { Fragment, useContext } from "react";
 import { Typography } from "@material-ui/core";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
+/**
+ *
+ * Component to render generic prescription alternatives when a brand name prescription is searched
+ */
+
 const GenericOptions = () => {
   const prescriptionContext = useContext(PrescriptionContext);
   const { genericOptions, loadingSearchResults } = prescriptionContext;

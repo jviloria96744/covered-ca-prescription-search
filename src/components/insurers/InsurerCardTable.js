@@ -15,6 +15,11 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import { COVERAGE_OBJECT } from "./constants";
 
+/**
+ *
+ * Component to render table in Insurer cards using results of the user prescription search
+ */
+
 const useStyles = makeStyles(() => ({
   paper: {
     maxWidth: "75%",
@@ -120,7 +125,13 @@ const InsurerCardTable = ({ prescriptionData, dataKey }) => {
 };
 
 InsurerCardTable.propTypes = {
+  /**
+   * Results of search for specific insurer
+   */
   prescriptionData: PropTypes.array.isRequired,
+  /**
+   * Insurer name key used to access results of API search
+   */
   dataKey: PropTypes.string.isRequired,
 };
 

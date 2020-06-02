@@ -18,4 +18,4 @@ npm install
 npm start
 ```
 
-Run tests with, `npm test` and create a production ready build folder with `npm build`. Note: This application does rely heavily on the AWS API calls.
+Run tests with, `npm test` and create a production ready build folder with `npm build`. Note: This application does rely heavily on the AWS API calls. Feel free to suggest an alternative data source.

@@ -1,5 +1,5 @@
-// This may or may not come from an initial API
-
+// This object is used to populate the drawer that is clicked for the tier and coverage definitions
+// The definitions depend on the insurer
 export const COVERAGE_OBJECT = {
   "Anthem-Blue-Cross": {
     Tier: {
@@ -357,6 +357,7 @@ export const COVERAGE_OBJECT = {
   },
 };
 
+// This is the array of insurers, links to their sites/formularies and whether or not they are supported in the tool
 export const INSURER_ARRAY = [
   {
     label: "Anthem Blue Cross of California",

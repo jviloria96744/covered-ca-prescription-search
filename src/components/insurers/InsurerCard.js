@@ -4,6 +4,11 @@ import { Grid, Card, CardHeader, CardActions } from "@material-ui/core";
 import InsurerCardTable from "./InsurerCardTable";
 import PrescriptionContext from "../../context/prescription/prescriptionContext";
 
+/**
+ *
+ * Component for displaying results of search for individual insurer
+ */
+
 const InsurerCard = ({ insurerName, formularyUrl, dataKey, websiteUrl }) => {
   const prescriptionContext = useContext(PrescriptionContext);
   const { prescriptionSearchResults } = prescriptionContext;
@@ -46,9 +51,21 @@ const InsurerCard = ({ insurerName, formularyUrl, dataKey, websiteUrl }) => {
 };
 
 InsurerCard.propTypes = {
+  /**
+   * Insurer's Name that is used in the view [name] link
+   */
   insurerName: PropTypes.string.isRequired,
+  /**
+   * URL to Insurer Formulary
+   */
   formularyUrl: PropTypes.string.isRequired,
+  /**
+   * URL to Insurer website
+   */
   websiteUrl: PropTypes.string.isRequired,
+  /**
+   * Insurer name key used to access results of API search
+   */
   dataKey: PropTypes.string.isRequired,
 };
 

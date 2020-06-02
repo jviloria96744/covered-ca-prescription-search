@@ -8,6 +8,11 @@ import {
   CardContent,
 } from "@material-ui/core";
 
+/**
+ *
+ * Component that renders card with non-supported insurers.  Their logo with a link to their formulary is the only thing that is rendered
+ */
+
 const NotSupportedCard = ({ notSupportedInsurers }) => {
   return (
     <Grid item xs={12} md={10}>
@@ -52,6 +57,9 @@ const NotSupportedCard = ({ notSupportedInsurers }) => {
 };
 
 NotSupportedCard.propTypes = {
+  /**
+   * Array of non-supported Insurer objects
+   */
   notSupportedInsurers: PropTypes.array.isRequired,
 };
 
