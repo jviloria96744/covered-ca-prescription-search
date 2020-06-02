@@ -1,6 +1,6 @@
 # Covered California Prescription Search
 
-This is the repo behind the [CoveredCA Prescription Search](http://covered-ca-prescription-search.s3-website-us-west-2.amazonaws.com/) web application.
+This is the repo behind the [CoveredCA Prescription Search](http://coveredcaprescriptionsearch.com/) web application.
 
 The purpose of this application is to assist someone when trying to compare different Covered California market plans, specifically from the perspective of prescription drug coverage/costs. Currently each provider makes their drug formulary available on their own website, typically by means of a PDF document with a list of prescriptions and what level of coverage is available as well as any requirements/restrictions that exist. This application will allow a user to search multiple prescription drug names/brand names and across the different provider's formularies, aggregating the results.
 
