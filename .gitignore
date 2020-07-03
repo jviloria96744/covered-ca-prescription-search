@@ -11,6 +11,8 @@
 # production
 /build
 
+/back-end-data
+
 deploy.sh
 
 deployProd.sh
