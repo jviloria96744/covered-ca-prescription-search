@@ -8,6 +8,10 @@ The back-end API calls are served by two AWS Lambda functions through Amazon API
 
 As can be seen in that repo, the source of the data behind this application are the original PDFs of the provider formularies scraped using a collection of ad-hoc scripts. This is definitely not the ideal back-end data source. My goal was to (1) create a simple tool that might assist people going through the same process that I did when researching market plans, but perhaps more importantly, (2) serve as a POC for functionality that can be made available/enhanced on the CoveredCA website provided access to the underlying raw data is possible.
 
+## Example Activity
+
+![Gif-Goes-Here](https://s3-us-west-2.amazonaws.com/assets.jayviloria.com/coveredca-app-activity.gif)
+
 ## Get Started
 
 To get started in using this application,
