@@ -10,7 +10,7 @@ As can be seen in that repo, the source of the data behind this application are 
 
 ## Example Activity
 
-![Gif-Goes-Here](https://s3-us-west-2.amazonaws.com/assets.jayviloria.com/coveredca-app-activity-resized.gif)
+![Gif-Goes-Here](https://jviloria.com/images/coveredca-app-activity-resized.gif)
 
 ## Get Started
 
